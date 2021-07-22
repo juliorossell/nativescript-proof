@@ -7,7 +7,7 @@ import { ItemDetailComponent } from "./item/item-detail.component";
 import { ReportsComponent } from "./item/reports/reports.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/reports", pathMatch: "full" },
+    { path: "", redirectTo: "/items", pathMatch: "full" },
     { path: "items", component: ItemsComponent },
     { path: "reports", component: ReportsComponent },
     { path: "item/:id", component: ItemDetailComponent },
