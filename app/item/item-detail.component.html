@@ -1,0 +1,59 @@
+<!-- <ActionBar title="Details" class="action-bar"></ActionBar>
+<FlexboxLayout flexDirection="column" class="page">
+  <FlexboxLayout class="m-15">
+    <Label class="h2" [text]="item.id + '. '"></Label>
+    <Label class="h2" [text]="item.name"></Label>
+  </FlexboxLayout>
+
+</FlexboxLayout> -->
+
+
+<GridLayout columns="*" rows="*">
+  <GridLayout
+    columns="auto,*"
+    rows="*"
+    row="0"
+    class="c--bg-primary-700 l--space-around-p l--spacing-pv-xl"
+    id="balanceContainer"
+  >
+    <NSButton
+      type="dark"
+      [icon]="balanceIcon"
+      [text]="balanceButtonText"
+      (tap)="balance()"
+      analytics-on="tap"
+      analytics-action="getBalanceInteraction()"
+    ></NSButton>
+
+    <Label
+      id="balanceLabelAmount"
+      row="0"
+      col="2"
+      visibility="collapse"
+      verticalAlignment="center"
+      horizontalAlignment="right"
+      class="
+        ts--character-m
+        ts--regular
+        c--white-100
+        ts--left
+      "
+    >
+      <FormattedString>
+        <Span text="S/ "></Span>
+
+        <Span text=""></Span>
+      </FormattedString>
+    </Label>
+
+    <ActivityIndicator
+      row="0"
+      col="2"
+      id="balanceLoader"
+      color="#FFFFFF"
+      class="activity-indicator-balance"
+      busy="false"
+      horizontalAlignment="right"
+    ></ActivityIndicator>
+  </GridLayout>
+</GridLayout>

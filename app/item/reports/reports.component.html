@@ -1,0 +1,49 @@
+<GridLayout  class="p-r-10 p-l-10" columns="auto,auto,auto" rows="20,20,auto,auto,*">
+
+
+    <ng-container *ngFor="let item of buttonList; let i = index" >
+        <Button
+            [col]="i"
+            row= "1"
+            class="c--bg-primary-700 c-white m-l-5 m-r-5"
+            [text]="item.name"
+            (tap)="onReportSelect(item.id)"
+            borderRadius="8"
+            paddingLeft="16"
+            paddingRight="16"
+        >
+        </Button>
+    </ng-container> 
+
+<!--
+    <container-element [ngSwitch]="switch" >
+        <some-element *ngSwitchCase="case1">
+            <Label text="CASO 1" col="0" row ="4"></Label>
+        </some-element>
+        <some-element *ngSwitchCase="case2">
+            <Label text="CASO 2" col="1" row ="4"></Label>
+        </some-element>
+        <some-element *ngSwitchCase="case3">
+            <Label text="CASO 3" col="2" row ="4"></Label>
+        </some-element>
+         <some-element *ngSwitchDefault>
+            <Label text="Default" colSpan="3" row ="4"></Label>
+        </some-element> 
+    </container-element>-->
+
+    <ng-template #case1>
+        <Label text="CASO 1" colSpan="3"row ="4"></Label>
+    </ng-template>
+    <ng-template #case2>
+        <Label text="CASO 2" col="0" row ="4"></Label>
+    </ng-template>
+    <ng-template #case3>
+        <Label text="CASO 3" col="0" row ="4"></Label>
+    </ng-template>
+
+    <ng-container  #reportTemplate></ng-container>
+    <StackLayout row="4"></StackLayout>
+    <app-dynamic-component col="0"  row= "2"></app-dynamic-component>
+
+    
+</GridLayout>

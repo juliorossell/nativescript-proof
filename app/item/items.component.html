@@ -1,0 +1,237 @@
+<!--
+The template defines the view of the component - what is actually rendered.
+In NativeScript applications the template is defined with XML using NativeScript UI elements.
+It is different from HTML. So instead of <input>, <span>, <div> etc. - we have <TextField>, <Label> and layouts.
+The important thing is that although the elements are different - all of the Angular’s template syntax works exactly the same.
+So you can still use template expressions, bindings, templates as well as all the built-in directives.
+-->
+
+<!--
+The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
+http://docs.nativescript.org/ui/action-bar
+-->
+<!-- <ActionBar class="action-bar">
+    <StackLayout>
+        <Button (tap)="openModal()" text="open modal"></Button>
+    </StackLayout>
+</ActionBar> -->
+
+<!--
+The StackLayout stacks UI components on the screen — either vertically or horizontally.
+In this case, the StackLayout does vertical stacking; you can change the stacking to
+horizontal by applying a orientation="horizontal" attribute to the <StackLayout> element.
+You can learn more about NativeScript layouts at https://docs.nativescript.org/ui/layout-containers.
+
+These components make use of several CSS class names that are part of the NativeScript
+core theme, such as p-20, btn, h2, and list-group. You can view a full list of the
+class names available for styling your app at https://docs.nativescript.org/ui/theme.
+-->
+<!-- <StackLayout class="page">
+    <ListView [items]="items" class="list-group">
+        <ng-template let-item="item">
+            <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
+                class="list-group-item"></Label>
+        </ng-template>
+    </ListView>
+</StackLayout> -->
+<GridLayout columns="*" rows="80, auto, 80, auto, auto">
+    
+    <FlexboxLayout
+      flexDirection="row"
+      justifyContent="space-between"
+      row="0"
+      class="c--bg-primary-700 p-r-10 p-l-10"
+    >
+      <Button 
+        row="0"
+        col="0"
+        class="c-white button"
+        (tap)="onTap($event)">
+        <FormattedString>
+          <Span    
+          class="btn__icon ts--icon" 
+          [text]="iconText"></Span>
+          <!-- <Span class="fas p-r-10" text =""></Span> -->
+          <Span [text]="text"></Span>            
+        </FormattedString>
+      </Button>
+      <!-- <FlexboxLayout class="button"  row="0" col="0" (tap)="onTap($event)">
+        <label text="ic" class="c-white m-r-10"></label>
+        <label text="Motrar saldo" class="c-white"></label>
+      </FlexboxLayout> -->
+      <!-- <Button (tap)="onTap($event)" class="c-white button">
+        <FormattedString>
+            <Span class="fas" text="{{'fa-film' | ''}}"></Span>
+            <Span text=" Test" fontAttributes="Bold"></Span>            
+        </FormattedString>
+    </Button> -->
+      <!-- <ns-proof-button (tap)="onTap()"   row="0" col="0" ></ns-proof-button> -->
+      <ng-container *ngIf="showAccount"> 
+        <label 
+          text="S/. 46,177.00"
+          class="c-white"
+          row="0" 
+          col="1">
+        </label>
+      </ng-container>
+       
+    </FlexboxLayout>
+    <!-- <StackLayout row="1" news>
+    </StackLayout> 
+   -->
+    <FlexboxLayout
+      flexDirection="row"
+      row="1"
+      height="56" 
+      class="p-r-10 p-l-10"
+      borderBottomWidth="1" borderColor="#f1f0f4"
+    >
+      <Image src="https://www.google.com/images/errors/logo_sm_2.png"  width="32"  height="32" ></Image>
+      <label text="Comparte y gana" class="c-purple p-r-10 p-l-10"></label>
+    </FlexboxLayout>
+     <!-- <StackLayout orientation="vertical" height="56" verticalAlignment="center" row="1">
+      <label text="Comparte y gana" class="c-purple"></label>
+     <GridLayout
+        id="newsBar"
+        height="56"
+        columns="auto,*"
+        rows="*"
+        visibility="collapsed"
+        class="l--space-around-p"
+      >
+        <Image
+          row="0"
+          col="0"
+          width="32"
+          height="32"
+          stretch="aspectFit"
+          id="newType"
+          src="res://ic_news"
+          verticalAlignment="center"
+          visibility="collapsed"
+        ></Image>
+        <Label
+          row="0"
+          col="1"
+          id="newTitle"
+          text="Comparte y gana"
+          verticalAlignment="center"
+          visibility="collapsed"
+        ></Label>
+      </GridLayout>
+  
+      <StackLayout id="newsDivider" borderBottomWidth="1" borderColor="#f1f0f4"></StackLayout> 
+    </StackLayout>-->
+
+    <GridLayout 
+      row="2" 
+      col="0" 
+      columns="auto, *, auto" 
+      rows="20, 20" 
+      class="p-r-10 p-l-10 m-t-15"
+      borderColor="#f1f0f4"
+      borderBottomWidth="1">
+      <Image 
+        row="0" 
+        col="0"
+        rowSpan="2"
+        width="32"
+        height="32"
+        stretch="aspectFit"
+        verticalAlignment="center"
+        src="https://www.google.com/images/errors/logo_sm_2.png" 
+      ></Image>
+      <Label
+        col="1"
+        row="0"
+
+        text="title"
+        textWrap="true"
+        class="c-purple p-r-10 p-l-10"
+      ></Label>
+    
+      <Label
+        col="1"
+        row="1"
+        text="description "
+        textWrap="true"
+        class="p-r-10 p-l-10"
+      ></Label>
+        <Button
+          row="0"
+          col="2"
+          rowSpan="2"
+          class="c--bg-primary-700 c-white"
+          text="Donar"
+          (tap)="onCallToAction()"
+          borderRadius="8"
+          paddingLeft="16"
+          paddingRight="16"
+        >
+        </Button>
+
+        <!-- class="c-white button" -->
+
+      
+  
+    </GridLayout>
+    
+
+    <!-- <StackLayout
+      borderColor="#f1f0f4"
+      borderBottomWidth="1"
+      height="72"
+      verticalAlignment="center"
+      row="2" col="0"
+    >
+    <label text="call-to-action" ></label>
+ 
+    </StackLayout> -->
+
+     <!-- <w-call-to-action
+        image="url"
+        [title]="businessContact.title"
+        [titleColor]="businessContact.color"
+        [description]="businessContact.description"
+        [textButton]="businessContact.buttonText"
+        (onCallToActionTap)="onCallToAction()"
+      ></w-call-to-action> -->
+
+
+    <label text="hola" row="3" col="0"></label>
+
+    <ng-container *ngIf="isLoaddingListPayment; else vc">
+      <StackLayout
+        verticalAlignment="center"
+        horizontalAlignment="center"
+        row="4" col="0"
+      >
+      <Image 
+        width="100"
+        height="100"
+        verticalAlignment="center"
+        src="https://www.google.com/images/errors/logo_sm_2.png" 
+      ></Image>
+
+      <label text="Listo para hacer tu primer yapeo?"></label>
+      <label text="Pulsa en el boton yapear"></label>
+      </StackLayout>
+
+    </ng-container>
+    
+    <ng-template #vc>
+      <StackLayout class="page" row="4">
+        <ListView [items]="items" class="list-group" row="4">
+            <ng-template let-item="item">
+                <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
+                    class="list-group-item"></Label>
+            </ng-template>
+        </ListView>
+    </StackLayout> 
+
+    </ng-template>
+    <!-- <ng-template #tpl>
+        <Label text="Soy un contenido"></Label>
+    </ng-template> -->
+
+</GridLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="ns_accent">#3d5afe</color>
+	<color name="viewfinder_mask">#33FFBB</color>
+    <color name="viewfinder_laser">#FF33D4</color>
+    <!-- <color name="viewfinder_border">#FF33D4</color> -->
+</resources>
