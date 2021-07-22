@@ -4,6 +4,7 @@ import { Item } from "./item";
 import { ItemService } from "./item.service";
 import { ModalDialogOptions, ModalDialogService } from "nativescript-angular";
 import { ModalComponent } from "~/item/modal/modal.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "ns-items",
@@ -18,6 +19,7 @@ export class ItemsComponent implements OnInit {
   text: string;
   isLoaddingListPayment = false;
   constructor(private itemService: ItemService,
+              private router: Router,
               private modalService: ModalDialogService,
               private vcRef: ViewContainerRef) {
   }
@@ -51,5 +53,9 @@ export class ItemsComponent implements OnInit {
 
   onCallToAction() {
     this.isLoaddingListPayment = !this.isLoaddingListPayment;
+  }
+
+  goToDynamicTemplates() {
+    this.router.navigate(['/reports']);
   }
 }

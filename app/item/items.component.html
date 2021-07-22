@@ -34,7 +34,7 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
         </ng-template>
     </ListView>
 </StackLayout> -->
-<GridLayout columns="*" rows="80, auto, 80, auto, auto">
+<GridLayout columns="*" rows="80, auto, 80, 30, auto">
     
     <FlexboxLayout
       flexDirection="row"
@@ -198,7 +198,17 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
       ></w-call-to-action> -->
 
 
-    <label text="hola" row="3" col="0"></label>
+    <Button
+      row="3"
+      col="0"
+      class="c--bg-primary-700 c-white"
+      text="GO TO DYNAMIC TEMPLATES"
+      (tap)="goToDynamicTemplates()"
+      borderRadius="8"
+      paddingLeft="16"
+      paddingRight="16"
+    >
+    </Button>
 
     <ng-container *ngIf="isLoaddingListPayment; else vc">
       <StackLayout
