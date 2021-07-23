@@ -17,6 +17,7 @@ import { ProofButtonComponent } from "./item/proof-button/proof-button.component
 import { NewsComponent } from "./item/news/news.component";
 import { ReportsComponent } from "./item/reports/reports.component";
 import { DynamicComponentModule } from "./item/dynamic-component/dynamic-component.module";
+import { ComponentsModule } from '@yape/ns-theme/ui/components/components.module';
 
 @NgModule({
     bootstrap: [
@@ -25,7 +26,8 @@ import { DynamicComponentModule } from "./item/dynamic-component/dynamic-compone
     imports: [
         NativeScriptModule,
         DynamicComponentModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ComponentsModule
     ],
     declarations: [
         AppComponent,

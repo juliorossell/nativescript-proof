@@ -34,7 +34,7 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
         </ng-template>
     </ListView>
 </StackLayout> -->
-<GridLayout columns="*" rows="80, auto, 80, 30, auto">
+<GridLayout columns="*" rows="80, auto, 80, 30, auto, auto">
     
     <FlexboxLayout
       flexDirection="row"
@@ -210,7 +210,7 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
     >
     </Button>
 
-    <ng-container *ngIf="isLoaddingListPayment; else vc">
+    <!-- <ng-container *ngIf="isLoaddingListPayment; else vc">
       <StackLayout
         verticalAlignment="center"
         horizontalAlignment="center"
@@ -239,7 +239,29 @@ class names available for styling your app at https://docs.nativescript.org/ui/t
         </ListView>
     </StackLayout> 
 
-    </ng-template>
+    </ng-template> -->
+
+    <StackLayout col="0" row="4" >
+      <!-- <label text="text"></label>
+      <NSButton
+        mode="text"
+        size="medium"
+        text="Ver todos"
+        backgroundColor="red"
+      >
+      </NSButton> -->
+
+      <NSListItem title="Últimos movimientos" [isHeader]="true">
+        <NSButton
+          mode="text"
+          size="medium"
+          text="Ver todos"
+          analytics-on="tap"
+          analytics-action="INTERACTION_VER_TODOS_NTBN"
+        >
+        </NSButton>
+      </NSListItem>
+    </StackLayout>
     <!-- <ng-template #tpl>
         <Label text="Soy un contenido"></Label>
     </ng-template> -->

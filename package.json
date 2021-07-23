@@ -31,17 +31,21 @@
 		"zone.js": "0.9.1"
 	},
 	"devDependencies": {
+		"@angular/compiler-cli": "8.0.0",
+		"@ngtools/webpack": "8.0.0",
+		"@yape/ns-theme": "file:app/libs/yape-ns-theme-1.3.4.tgz",
 		"babel-traverse": "6.4.5",
 		"babel-types": "6.4.5",
 		"babylon": "6.4.5",
+		"jscrambler-webpack-plugin": "5.3.4",
 		"lazy": "1.0.11",
-		"typescript": "3.4.5",
 		"nativescript-dev-webpack": "1.0.1",
-		"@angular/compiler-cli": "8.0.0",
-		"@ngtools/webpack": "8.0.0",
-		"jscrambler-webpack-plugin": "5.3.4"
+		"node-sass": "^4.13.1",
+		"typescript": "3.4.5",
+		"webpack-bundle-analyzer": "^4.4.2"
 	},
 	"scripts": {
-		"clean": "rm -rf node_modules && rm -rf platforms && rm -rf hooks && rm -rf package-lock.json"
+		"clean": "rm -rf node_modules && rm -rf platforms && rm -rf hooks && rm -rf package-lock.json",
+		"stats": "webpack-bundle-analyzer stats.json"
 	}
 }
