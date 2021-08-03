@@ -83,13 +83,15 @@ export class TakeScreenshotComponent implements OnInit {
 
 }
 
-// function getBitmapFromView(view: View) {
-//   var bitmap =
-//       Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888);
-//   var canvas = Canvas(bitmap)
-//   view.draw(canvas)
-//   return bitmap
-// }
+function getBitmapFromView(view: View) {
+  console.log('view.android.width', view.android);
+  console.log('view.android.height', view.android.height);
+  console.log('android.graphics.Bitmap.Config.ARGB_8888', android.graphics.Bitmap.Config.ARGB_8888);
+  var bitmap = android.graphics.Bitmap.createBitmap(100, 100, android.graphics.Bitmap.Config.ARGB_8888);
+  var canvas = new  android.graphics.Canvas(bitmap);
+  view.android.draw(canvas)
+  return bitmap;
+}
 
 export function onPan(args: PanGestureEventData) {
   const view = args.object as View;
@@ -113,10 +115,11 @@ export function getImage(view: View) {
   } else if (view.android) {
     // android logic  
     
-    view.android.setDrawingCacheEnable(true);
-    const bmp = android.graphics.Bitmap.createBitmap(view.android.getDrawingCache());
+    // view.android.setDrawingCacheEnable(true);
+    // const bmp = android.graphics.Bitmap.createBitmap(view.android.getDrawingCache());
+    const bmp = getBitmapFromView(view);
     // var canvas = new android.graphics.Canvas();
-    view.android.setDrawingCacheEnable(false);
+    // view.android.setDrawingCacheEnable(false);
     const source = new ImageSource();
     source.setNativeSource(bmp);
     console.log(source);
