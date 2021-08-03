@@ -80,26 +80,50 @@ export class TakeScreenshotComponent implements OnInit {
   //   // return imageSource;
   // }
 
+  onPan(args: PanGestureEventData) {
+    const view = args.object as View;
+    if(args.state === GestureStateTypes.changed) {
+      view.translateX =  args.deltaX;
+      view.translateY = args.deltaY;
+    }
+  }
+
 
 }
 
 function getBitmapFromView(view: View) {
-  console.log('view.android.width', view.android);
-  console.log('view.android.height', view.android.height);
+  // console.log('view.android.width', view.android);
+//   setTimeout(function() {
+//     const height = view.android.getMeasuredHeight();
+//     const width = view.android.getMeasuredWidth();
+//     console.log('height', height);
+//     console.log('width', width);
+// }, 100)
+const height = view.android.getMeasuredHeight();
+const width = view.android.getMeasuredWidth();
   console.log('android.graphics.Bitmap.Config.ARGB_8888', android.graphics.Bitmap.Config.ARGB_8888);
-  var bitmap = android.graphics.Bitmap.createBitmap(100, 100, android.graphics.Bitmap.Config.ARGB_8888);
+  var bitmap = android.graphics.Bitmap.createBitmap(width, height, android.graphics.Bitmap.Config.ARGB_8888);
   var canvas = new  android.graphics.Canvas(bitmap);
   view.android.draw(canvas)
   return bitmap;
 }
 
-export function onPan(args: PanGestureEventData) {
-  const view = args.object as View;
-  if(args.state === GestureStateTypes.changed) {
-    view.translateX =  args.deltaX;
-    view.translateY = args.deltaY;
-  }
-}
+// function checkIfViewRendered() {
+//   setTimeout(function() {
+//       height = view.getMeasuredHeight()
+//   }, 100)
+//   if (height === 0) checkIfViewRendered()
+//   else console.log('rendered height is', height)
+// }
+
+
+// export function onPan(args: PanGestureEventData) {
+//   const view = args.object as View;
+//   if(args.state === GestureStateTypes.changed) {
+//     view.translateX =  args.deltaX;
+//     view.translateY = args.deltaY;
+//   }
+// }
 
 
 export function getImage(view: View) {
