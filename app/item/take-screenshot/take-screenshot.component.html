@@ -1,0 +1,24 @@
+<!-- <FlexboxLayout
+flexDirection="row"
+height="56" 
+class="p-r-10 p-l-10"
+borderBottomWidth="1" borderColor="#f1f0f4"
+>
+<Image src="https://www.google.com/images/errors/logo_sm_2.png"  width="32"  height="32" ></Image>
+<label text="Comparte y gana" class="c-purple p-r-10 p-l-10"></label>
+</FlexboxLayout> -->
+<!-- (loaded)="onLoaded($event)" -->
+<GridLayout id="layout"   >
+
+
+    <StackLayout>
+        <Label text= "tap the button" ></Label>
+        <Button text="Tap me!" (tap)="onTap($event)"></Button>
+        <Image src="https://www.google.com/images/errors/logo_sm_2.png"  width="50"  height="50" ></Image>
+    </StackLayout>  
+
+
+    <Image id="img" stretch="aspectFill" visibility="collapsed" pan="onPan"></Image>
+
+</GridLayout>
+

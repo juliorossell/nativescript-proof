@@ -17,6 +17,7 @@ import { ProofButtonComponent } from "./item/proof-button/proof-button.component
 import { NewsComponent } from "./item/news/news.component";
 import { ReportsComponent } from "./item/reports/reports.component";
 import { DynamicComponentModule } from "./item/dynamic-component/dynamic-component.module";
+import { TakeScreenshotComponent } from "./item/take-screenshot/take-screenshot.component";
 
 @NgModule({
     bootstrap: [
@@ -34,7 +35,8 @@ import { DynamicComponentModule } from "./item/dynamic-component/dynamic-compone
         ModalComponent,
         NewsComponent,
         ProofButtonComponent,
-        ReportsComponent
+        ReportsComponent,
+        TakeScreenshotComponent
     ],
     providers: [
         ItemService
