@@ -4,8 +4,10 @@ import { fromData } from '@nativescript/core/image-source';
 
 import { Image } from "@nativescript/core/ui/image"
 
+import * as SocialShare from "nativescript-social-share";
+
 // import { fromFile } from '@nativescript/core/image-source';
-import * as BitmapFactory from "nativescript-bitmap-factory";
+// import * as BitmapFactory from "nativescript-bitmap-factory";
 
 // import * as plugin from "nativescript-screenshot";
 // import * as KnownColors from "color/known-colors";
@@ -63,14 +65,17 @@ export class TakeScreenshotComponent implements OnInit {
     const view = args.object as View;
     
     const targetView = view.page.getViewById('layout') as View;
-    const img = view.page.getViewById('img') as Image;
+    // const img = view.page.getViewById('img') as Image;
 
     console.log(targetView);
     const screenShot = getImage(targetView);
 
-    img.imageSource = screenShot;
+    // let image = ImageSource.fromFile("~/path/to/myImage.jpg");
+    SocialShare.shareImage(screenShot);
 
-    img.visibility = 'visible';
+    // img.imageSource = screenShot;
+
+    // img.visibility = 'visible';
 
   }
 
@@ -92,17 +97,11 @@ export class TakeScreenshotComponent implements OnInit {
 }
 
 function getBitmapFromView(view: View) {
-  // console.log('view.android.width', view.android);
-//   setTimeout(function() {
-//     const height = view.android.getMeasuredHeight();
-//     const width = view.android.getMeasuredWidth();
-//     console.log('height', height);
-//     console.log('width', width);
-// }, 100)
-const height = view.android.getMeasuredHeight();
-const width = view.android.getMeasuredWidth();
-  console.log('android.graphics.Bitmap.Config.ARGB_8888', android.graphics.Bitmap.Config.ARGB_8888);
+  const height = view.android.getMeasuredHeight();
+  const width = view.android.getMeasuredWidth();
   var bitmap = android.graphics.Bitmap.createBitmap(width, height, android.graphics.Bitmap.Config.ARGB_8888);
+  // const bitmap =  androidx.core.view.drawToBitmap(view, android.graphics.Bitmap.Config.ARGB_8888)
+  // bitmap = view.android.drawToBitmap(view, android.graphics.Bitmap.Config.ARGB_8888);
   var canvas = new  android.graphics.Canvas(bitmap);
   view.android.draw(canvas)
   return bitmap;

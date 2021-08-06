@@ -1,0 +1,19 @@
+
+
+dependencies {
+  implementation 'androidx.core:core-ktx:1.0.2'
+  compile 'androidx.multidex:multidex:2.0.1'
+}
+
+android {
+  defaultConfig {
+    minSdkVersion = 21
+    generatedDensities = []
+    applicationId = "__PACKAGE__"
+    multiDexEnabled true
+  }
+  aaptOptions {
+    additionalParameters "--no-version-vectors"
+  }
+}
+
